@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Electricity Bill Unit</title>
+</head>
+<body>
+    <script>
+        let name = prompt("Enter Name:");
+        document.write("Name: " + name + "<br>");
+
+        let unit = Number(prompt("Enter Units:"));
+        document.write("Units: " + unit + "<br>");
+
+        let amount = 0;
+
+        if (unit <= 50) {
+            amount = unit * 2;
+        } 
+        else if (unit <= 70) {
+            amount = (50 * 2) + ((unit - 50) * 3);
+        } 
+        else {
+            amount = (50 * 2) + (20 * 3) + ((unit - 70) * 5);
+        }
+
+        document.write("Electricity Bill: " + amount + " Rs");
+    </script>
+</body>
+</html>

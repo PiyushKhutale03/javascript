@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title> UserInput </title>
+    </head>
+    <body>
+        <script>
+            let name = prompt("Enter Name ")
+            document.write("Name: "+name+"<br>")
+
+            let marks = prompt("Enter Marks :")
+            document.write("Marks: "+ marks+"<br>")
+
+            if (marks>90) {
+                document.write("Outstanding")
+            }
+            else if(marks>=80 && marks<90){
+                document.write("Excellent")
+            }else if(marks>=70 && marks<80){
+                document.write("Very Good")
+            }else if(marks>=60 && marks<70){
+                document.write("Good")  
+            }else(
+                document.write("Poor")
+            )
+
+        </script>
+    </body>
+</html>
