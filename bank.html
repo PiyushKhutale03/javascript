@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Bank System</title>
+</head>
+<body>
+
+<script>
+class BankAccount {
+    constructor(name, accno, balance) {
+        this.name = name;
+        this.accno = accno;
+        this.balance = balance;
+    }
+
+    getDetails() {
+        return `Account Holder: ${this.name}\nAccount No: ${this.accno}\nCurrent Balance: $${this.balance}`;
+    }
+
+    deposit(amt) {
+        if (amt > 0) {
+            this.balance += amt;
+            alert("Deposit successful! New balance: $" + this.balance);
+        } else {
+            alert("Invalid deposit amount.");
+        }
+    }
+
+    withdraw(amt) {
+        if (amt > this.balance) {
+            alert("Transaction Failed: Insufficient balance!");
+        } else if (amt <= 0) {
+            alert("Please enter a valid amount.");
+        } else {
+            this.balance -= amt;
+            alert("Withdrawal successful! Remaining balance: $" + this.balance);
+        }
+    }
+}
+
+let name = prompt("Enter account holder name:");
+let accno = prompt("Enter account number:");
+let bal = parseInt(prompt("Enter initial balance:"));
+
+let acc = new BankAccount(name, accno, bal);
+
+alert("Account Created Successfully!\n\n" + acc.getDetails());
+
+let exit = false;
+while (!exit) {
+    let action = prompt("Choose an action:\n1. Deposit\n2. Withdraw\n3. Show Balance & Exit");
+
+    if (action === "1") {
+        let dep = parseInt(prompt("Enter deposit amount:"));
+        acc.deposit(dep);
+    } else if (action === "2") {
+        let wd = parseInt(prompt("Enter withdraw amount:"));
+        acc.withdraw(wd);
+    } else {
+        exit = true;
+    }
+}
+
+
+document.write("<h2>Final Statement</h2>");
+document.write("<strong>Name:</strong> " + acc.name + "<br>");
+document.write("<strong>Account No:</strong> " + acc.accno + "<br>");
+document.write("<strong>Final Balance:</strong> $" + acc.balance);
+</script>
+
+</body>
+</html>
