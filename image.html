@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Validation</title>
+</head>
+<body>
+  <h2>Image File Validation</h2>
+
+  <input type="file" id="image"><br><br>
+  <button onclick="checkImage()">Validate Image</button>
+
+  <p id="result"></p>
+
+  <script>
+    function checkImage() {
+      try {
+        let file = document.getElementById("image").files[0];
+
+        if (!file) {
+          throw new Error("Please select an image");
+        }
+
+        if (!file.type.startsWith("image/")) {
+          throw new Error("File must be an image");
+        }
+
+        document.getElementById("result").innerText = "Valid image file";
+      }
+      catch (e) {
+        document.getElementById("result").innerText = "Error: " + e.message;
+      }
+    }
+  </script>
+</body>
+</html>

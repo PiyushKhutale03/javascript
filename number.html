@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Number Validation</title>
+</head>
+<body>
+  <h2>Number Range Validation</h2>
+
+  <input type="number" id="number" placeholder="Enter number (1–100)"><br><br>
+  <button onclick="checkNumber()">Validate Number</button>
+
+  <p id="result"></p>
+
+  <script>
+    function checkNumber() {
+      try {
+        let value = Number(document.getElementById("number").value);
+
+        if (isNaN(value)) {
+          throw new Error("Enter a valid number");
+        }
+
+        if (value < 1 || value > 100) {
+          throw new Error("Number must be between 1 and 100");
+        }
+
+        document.getElementById("result").innerText = "Valid number";
+      }
+      catch (e) {
+        document.getElementById("result").innerText = "Error: " + e.message;
+      }
+    }
+  </script>
+</body>
+</html>
